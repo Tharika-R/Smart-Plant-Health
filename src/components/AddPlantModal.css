@@ -1,0 +1,120 @@
+.add-plant-modal {
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lift);
+  padding: 32px;
+  overflow: hidden;
+}
+
+.wizard-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.wizard-progress-fill {
+  height: 100%;
+  background-color: var(--primary-forest);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.wizard-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-tag {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--primary-sage);
+  letter-spacing: 0.08em;
+}
+
+.step-title {
+  font-size: 1.65rem;
+  color: var(--text-primary);
+}
+
+.step-subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.option-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--primary-accent);
+}
+
+.option-card.active {
+  background-color: var(--primary-sage-light);
+  border-color: var(--primary-forest);
+}
+
+.option-icon {
+  font-size: 1.75rem;
+}
+
+.option-text strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.option-text span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.wizard-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.unit-tag {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.wizard-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}

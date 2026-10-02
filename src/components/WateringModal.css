@@ -1,0 +1,33 @@
+.watering-modal-card {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lift);
+}
+
+.blue-icon-box {
+  background-color: var(--primary-sage-light);
+  color: var(--primary-sage);
+}
+
+.modal-subtitle-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.command-sent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--status-thriving-bg);
+  color: var(--status-thriving);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  animation: fadeIn 0.3s ease-out;
+}

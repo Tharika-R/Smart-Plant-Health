@@ -1,0 +1,172 @@
+// Prisma Schema for Plantora Smart Plant Care Node.js Backend
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum CommandStatus {
+  PENDING
+  SENT
+  EXECUTING
+  COMPLETED
+  FAILED
+  EXPIRED
+  CANCELLED
+}
+
+enum NutrientType {
+  NITROGEN
+  PHOSPHORUS
+  POTASSIUM
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  plants    Plant[]
+
+  @@map("users")
+}
+
+model Plant {
+  id                 String   @id @default(uuid())
+  userId             String
+  name               String
+  plantType          String
+  ageDays            Int      @default(1)
+  growthStage        String   @default("Seedling")
+  location           String   @default("Indoor")
+  deviceId           String   @default("ESP32_001")
+  moistureThreshold  Float    @default(45.0)
+  tempThreshold      Float    @default(30.0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  images             PlantImage[]
+  analyses           PlantAnalysis[]
+  sensorReadings     SensorReading[]
+  fertilizerCommands FertilizerCommand[]
+  fertilizerEvents   FertilizerEvent[]
+  devices            Device[]
+
+  @@map("plants")
+}
+
+model Device {
+  id         String   @id @default(uuid())
+  deviceId   String   @unique
+  plantId    String?
+  status     String   @default("ONLINE") // ONLINE | OFFLINE
+  lastSeen   DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  plant      Plant?   @relation(fields: [plantId], references: [id], onDelete: SetNull)
+
+  @@map("devices")
+}
+
+model PlantImage {
+  id        String   @id @default(uuid())
+  plantId   String
+  imageUrl  String
+  createdAt DateTime @default(now())
+
+  plant     Plant    @relation(fields: [plantId], references: [id], onDelete: Cascade)
+  analyses  PlantAnalysis[]
+
+  @@map("plant_images")
+}
+
+model PlantAnalysis {
+  id              String   @id @default(uuid())
+  plantId         String
+  imageId         String?
+  plantName       String
+  plantConfidence Int
+  overallHealth   Int
+  healthStatus    String
+  analysisJson    Json
+  createdAt       DateTime @default(now())
+
+  plant           Plant       @relation(fields: [plantId], references: [id], onDelete: Cascade)
+  image           PlantImage? @relation(fields: [imageId], references: [id], onDelete: SetNull)
+
+  @@map("plant_analyses")
+}
+
+model SensorReading {
+  id           String   @id @default(uuid())
+  deviceId     String
+  plantId      String
+  soilMoisture Float
+  temperature  Float
+  humidity     Float
+  nitrogen     Float    @default(35.0)
+  phosphorus   Float    @default(22.0)
+  potassium    Float    @default(41.0)
+  timestamp    DateTime @default(now())
+
+  plant        Plant    @relation(fields: [plantId], references: [id], onDelete: Cascade)
+
+  @@map("sensor_readings")
+}
+
+model FertilizerConfig {
+  id        String       @id @default(uuid())
+  nutrient  NutrientType @unique
+  amount    Float        @default(5.0) // Safe demo amount in mL
+  unit      String       @default("ml")
+  updatedAt DateTime     @updatedAt
+
+  @@map("fertilizer_config")
+}
+
+model FertilizerCommand {
+  id          String        @id @default(uuid())
+  plantId     String
+  deviceId    String
+  nutrient    NutrientType
+  amount      Float
+  unit        String        @default("ml")
+  status      CommandStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  expiresAt   DateTime
+  completedAt DateTime?
+
+  plant       Plant         @relation(fields: [plantId], references: [id], onDelete: Cascade)
+
+  @@map("fertilizer_commands")
+}
+
+model FertilizerEvent {
+  id        String        @id @default(uuid())
+  plantId   String
+  nutrient  NutrientType
+  amount    Float
+  unit      String        @default("ml")
+  status    CommandStatus @default(COMPLETED)
+  timestamp DateTime      @default(now())
+
+  plant     Plant         @relation(fields: [plantId], references: [id], onDelete: Cascade)
+
+  @@map("fertilizer_events")
+}

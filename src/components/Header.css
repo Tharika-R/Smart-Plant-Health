@@ -1,0 +1,138 @@
+.top-header {
+  height: 80px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-card-subtle);
+}
+
+.header-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-main);
+}
+
+.plant-badge {
+  background-color: var(--primary-light);
+  border-color: var(--primary-border);
+  color: var(--primary-dark);
+}
+
+.green-icon {
+  color: var(--primary);
+}
+
+.badge-tag {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.wifi-badge.online {
+  background-color: #ECFDF5;
+  border-color: #A7F3D0;
+  color: #065F46;
+}
+
+.wifi-badge.mock-mode {
+  background-color: #FFFBEB;
+  border-color: #FDE68A;
+  color: #92400E;
+}
+
+.header-time-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 6px 12px;
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+.time-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.font-mono {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.time-icon {
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .top-header {
+    padding: 0 16px;
+    height: 70px;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .plant-badge, .header-subtitle {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .wifi-badge {
+    display: none;
+  }
+}

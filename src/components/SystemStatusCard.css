@@ -1,0 +1,76 @@
+.system-status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sys-header-icon {
+  color: var(--primary);
+}
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+.hardware-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.hardware-item:hover {
+  border-color: var(--primary-border);
+  background-color: #FFFFFF;
+}
+
+.hw-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.hw-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hw-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hw-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.hw-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hw-bullet {
+  color: var(--border-light);
+}

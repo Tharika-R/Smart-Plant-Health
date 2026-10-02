@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ==========================================
+       PLANTIVA LIGHT NATURE-TECH SYSTEM
+       ========================================== */
+    --color-bg-app: #FAF9F5;
+    --color-bg-surface: #FFFFFF;
+    --color-bg-surface-elevated: #F3F0E6;
+    --color-bg-translucent: rgba(255, 255, 255, 0.82);
+    --color-bg-sidebar: #F4F1E8;
+
+    --color-forest-deep: #0F241A;
+    --color-forest-main: #163326;
+    --color-forest-subtle: #244737;
+
+    --color-emerald-main: #10B981;
+    --color-emerald-dark: #059669;
+    --color-emerald-light: #D1FAE5;
+    --color-emerald-subtle: #E6F7F0;
+
+    --color-terracotta-main: #E07A5F;
+    --color-terracotta-light: #FDF0EC;
+    --color-amber-main: #F59E0B;
+    --color-amber-light: #FEF3C7;
+
+    --color-text-main: #112119;
+    --color-text-muted: #53695D;
+    --color-text-subtle: #879B8F;
+    --color-text-inverse: #FFFFFF;
+
+    --color-border: rgba(16, 185, 129, 0.14);
+    --color-border-subtle: rgba(17, 33, 25, 0.08);
+    --color-border-active: #10B981;
+
+    --shadow-glass: 0 10px 30px -5px rgba(15, 36, 26, 0.05), 0 4px 12px -2px rgba(15, 36, 26, 0.03);
+    --shadow-glow: 0 0 25px rgba(16, 185, 129, 0.25);
+    --shadow-lift: 0 20px 40px -8px rgba(15, 36, 26, 0.12);
+
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Outfit', sans-serif;
+
+    --radius-card: 24px;
+    --radius-pill: 9999px;
+
+    --transition-smooth: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /* ==========================================
+     PLANTIVA DARK NATURE-TECH SYSTEM
+     ========================================== */
+  [data-theme="dark"] {
+    --color-bg-app: #0B1511;
+    --color-bg-surface: #12221B;
+    --color-bg-surface-elevated: #1A2F25;
+    --color-bg-translucent: rgba(18, 34, 27, 0.85);
+    --color-bg-sidebar: #0E1C16;
+
+    --color-forest-deep: #163326;
+    --color-forest-main: #244737;
+    --color-forest-subtle: #325C48;
+
+    --color-emerald-main: #34D399;
+    --color-emerald-dark: #10B981;
+    --color-emerald-light: #18382B;
+    --color-emerald-subtle: #132A20;
+
+    --color-terracotta-main: #F87171;
+    --color-terracotta-light: #3A1B1B;
+    --color-amber-main: #FBBF24;
+    --color-amber-light: #3D2F12;
+
+    --color-text-main: #F0F7F3;
+    --color-text-muted: #A3BDAD;
+    --color-text-subtle: #6D8777;
+    --color-text-inverse: #0B1511;
+
+    --color-border: rgba(52, 211, 153, 0.16);
+    --color-border-subtle: rgba(255, 255, 255, 0.07);
+    --color-border-active: #34D399;
+
+    --shadow-glass: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 30px rgba(52, 211, 153, 0.2);
+    --shadow-lift: 0 20px 40px -8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-app);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  color: var(--color-text-main);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Glassmorphism Card Utilities */
+.glass-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+.glass-pill {
+  background-color: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+}
+
+/* Glowing Pulsing Status Badges */
+.pulse-emerald {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-emerald-subtle);
+  color: var(--color-emerald-main);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-emerald-main);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseEmerald 2s infinite;
+}
+
+@keyframes pulseEmerald {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-emerald-main);
+  border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,21 @@
+.floating-leaves-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-leaf {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.25;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+}
+
+.leaf-1 { top: 12%; right: 5%; font-size: 2rem; }
+.leaf-2 { top: 45%; right: 2%; font-size: 1.75rem; }
+.leaf-3 { bottom: 15%; left: 3%; font-size: 2.2rem; }

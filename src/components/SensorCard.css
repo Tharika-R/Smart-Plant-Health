@@ -1,0 +1,135 @@
+.sensor-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth), var(--transition-theme);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.sensor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+.sensor-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sensor-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.icon-bg-emerald { background-color: var(--status-thriving-bg); }
+.icon-color-emerald { color: var(--status-thriving); }
+
+.icon-bg-amber { background-color: var(--sunflower-light); }
+.icon-color-amber { color: var(--sunflower); }
+
+.icon-bg-blue { background-color: var(--primary-sage-light); }
+.icon-color-blue { color: var(--primary-sage); }
+
+.pulse-icon {
+  transition: transform 0.3s ease;
+}
+
+.sensor-card:hover .pulse-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.sensor-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.sensor-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.sensor-value-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.sensor-value {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sensor-value.animating {
+  opacity: 0.5;
+  transform: translateY(-2px);
+}
+
+.sensor-unit {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Progress Track */
+.sensor-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-full);
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.sensor-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.fill-emerald { background-color: var(--status-thriving); }
+.fill-amber { background-color: var(--sunflower); }
+.fill-blue { background-color: var(--primary-sage); }
+
+.sensor-card-footer {
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.trend-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.trend-value {
+  font-weight: 700;
+}
+
+.trend-value.up { color: var(--status-thriving); }
+.trend-value.down { color: var(--terracotta); }
+.trend-value.stable { color: var(--text-muted); }
+
+.trend-label {
+  color: var(--text-muted);
+}

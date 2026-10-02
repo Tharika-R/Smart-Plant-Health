@@ -1,0 +1,77 @@
+.watering-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.threshold-config-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.config-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.live-moisture-indicator {
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.indicator-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.ind-label {
+  color: var(--text-secondary);
+}
+
+.ind-val {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.custom-range-slider {
+  width: 100%;
+  accent-color: var(--primary);
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.save-threshold-btn {
+  margin-top: 10px;
+}

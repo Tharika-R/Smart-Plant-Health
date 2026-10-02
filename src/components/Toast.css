@@ -1,0 +1,31 @@
+.plantora-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lift);
+  font-size: 0.875rem;
+  font-weight: 700;
+  background-color: var(--primary-forest);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 420px;
+}
+
+.toast-success .toast-icon-green { color: #84A98C; }
+.toast-warning { background-color: #92400E; }
+.toast-info { background-color: #1E40AF; }
+
+@media (max-width: 900px) {
+  .plantora-toast {
+    bottom: 84px; /* Above mobile bottom bar */
+    right: 16px;
+    left: 16px;
+    justify-content: center;
+  }
+}

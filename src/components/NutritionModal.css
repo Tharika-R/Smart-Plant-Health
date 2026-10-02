@@ -1,0 +1,171 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 16, 13, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.nutrition-modal-card {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lift);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--text-muted);
+  padding: 6px;
+  border-radius: var(--radius-full);
+  transition: var(--transition-smooth);
+}
+
+.modal-close-icon:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.modal-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.modal-header-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green-icon-box {
+  background-color: var(--status-thriving-bg);
+  color: var(--status-thriving);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.nutrition-reason-card {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.stage-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: var(--primary-sage-light);
+  color: var(--primary-forest);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.reason-body-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.dry-soil-warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background-color: var(--status-critical-bg);
+  border: 1px solid rgba(224, 122, 95, 0.3);
+  border-radius: var(--radius-md);
+  text-align: left;
+  font-size: 0.875rem;
+  color: var(--status-critical);
+  width: 100%;
+}
+
+.dose-selector-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.amount-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.amount-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.amount-chip {
+  padding: 10px 4px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: var(--transition-smooth);
+}
+
+.amount-chip:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--primary-accent);
+}
+
+.amount-chip.active {
+  background-color: var(--primary-forest);
+  color: #FFFFFF;
+  border-color: var(--primary-forest);
+}
+
+.command-sent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--status-thriving-bg);
+  color: var(--status-thriving);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-action-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+  padding-top: 8px;
+}
